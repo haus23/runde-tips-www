@@ -1,21 +1,22 @@
 {
-  "name": "@haus23/runde-tips-www",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && vite build --ssr",
-    "start": "remix-serve ./build/index.js"
-  },
-  "dependencies": {
-    "@remix-run/node": "^2.3.1",
-    "@remix-run/react": "^2.3.1",
-    "@remix-run/serve": "^2.3.1",
-    "isbot": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@remix-run/dev": "^2.3.1",
-    "vite": "^5.0.2"
-  }
+	"name": "@haus23/runde-tips-www",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build && vite build --ssr",
+		"start": "remix-serve ./build/index.js"
+	},
+	"dependencies": {
+		"@remix-run/node": "^2.3.1",
+		"@remix-run/react": "^2.3.1",
+		"@remix-run/serve": "^2.3.1",
+		"isbot": "latest",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.4.0",
+		"@remix-run/dev": "^2.3.1",
+		"vite": "^5.0.2"
+	}
 }
