@@ -22,7 +22,6 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=schedule
