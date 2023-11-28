@@ -1,9 +1,9 @@
-export const meta = () => {
+export function meta() {
 	return [
 		{ title: "runde.tips" },
 		{ name: "description", content: "Haus23 Fussball Tipprunde" },
 	];
-};
+}
 
 export default function Index() {
 	return (

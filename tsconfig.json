@@ -1,0 +1,19 @@
+{
+	"include": ["**/*.ts", "**/*.tsx"],
+	"compilerOptions": {
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react-jsx",
+		"verbatimModuleSyntax": true,
+
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"skipLibCheck": true,
+
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"target": "ES2022",
+		"noEmit": true
+	}
+}

@@ -4,7 +4,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build && vite build --ssr",
-		"start": "remix-serve ./build/index.js"
+		"start": "remix-serve ./build/index.js",
+		"typecheck": "tsc"
 	},
 	"dependencies": {
 		"@remix-run/node": "^2.3.1",
@@ -17,6 +18,8 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.4.0",
 		"@remix-run/dev": "^2.3.1",
+		"@types/react": "^18.2.39",
+		"typescript": "^5.3.2",
 		"vite": "^5.0.2"
 	}
 }
