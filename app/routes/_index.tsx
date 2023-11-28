@@ -1,7 +1,7 @@
 export function meta() {
 	return [
-		{ title: "runde.tips" },
-		{ name: "description", content: "Haus23 Fussball Tipprunde" },
+		{ title: 'runde.tips' },
+		{ name: 'description', content: 'Haus23 Fussball Tipprunde' },
 	];
 }
 
