@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.3...v0.0.4)
+
+### 🏡 Chore
+
+- Add drizzle orm with initial schema. ([aea7b5a](https://github.com/haus23/runde-tips-www/commit/aea7b5a))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.3
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.2...v0.0.3)
