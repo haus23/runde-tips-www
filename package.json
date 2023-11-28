@@ -2,11 +2,14 @@
   "name": "@haus23/runde-tips-www",
   "type": "module",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build && vite build --ssr",
+    "start": "remix-serve ./build/index.js"
   },
   "dependencies": {
     "@remix-run/node": "^2.3.1",
     "@remix-run/react": "^2.3.1",
+    "@remix-run/serve": "^2.3.1",
     "isbot": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
