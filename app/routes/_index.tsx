@@ -7,8 +7,8 @@ export function meta() {
 
 export default function Index() {
 	return (
-		<div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<h1>runde.tips</h1>
+		<div className="flex justify-around mt-4">
+			<h1 className="text-3xl font-semibold">runde.tips</h1>
 		</div>
 	);
 }
