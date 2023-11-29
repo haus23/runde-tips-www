@@ -1,7 +1,7 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { drizzleInstance } from '../../db/drizzle-instance.server';
-import { userTable } from '../../db/schema';
+import { drizzleInstance } from '#/db/drizzle-instance.server';
+import { userTable } from '#/db/schema';
 
 export function meta() {
 	return [
