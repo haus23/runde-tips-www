@@ -1,30 +1,31 @@
 {
-  "name": "@haus23/runde-tips-www",
-  "version": "0.0.4",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && vite build --ssr",
-    "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
-  },
-  "dependencies": {
-    "@libsql/client": "0.4.0-pre.2",
-    "@remix-run/node": "^2.3.1",
-    "@remix-run/react": "^2.3.1",
-    "@remix-run/serve": "^2.3.1",
-    "drizzle-orm": "^0.29.0",
-    "isbot": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.4.0",
-    "@remix-run/dev": "^2.3.1",
-    "@types/react": "^18.2.39",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.2"
-  }
+	"name": "@haus23/runde-tips-www",
+	"license": "MIT",
+	"version": "0.0.4",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build && vite build --ssr",
+		"start": "remix-serve ./build/index.js",
+		"typecheck": "tsc"
+	},
+	"dependencies": {
+		"@libsql/client": "0.4.0-pre.2",
+		"@remix-run/node": "^2.3.1",
+		"@remix-run/react": "^2.3.1",
+		"@remix-run/serve": "^2.3.1",
+		"drizzle-orm": "^0.29.0",
+		"isbot": "latest",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.4.0",
+		"@remix-run/dev": "^2.3.1",
+		"@types/react": "^18.2.39",
+		"postcss": "^8.4.31",
+		"tailwindcss": "^3.3.5",
+		"typescript": "^5.3.2",
+		"vite": "^5.0.2"
+	}
 }
