@@ -1,7 +1,8 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { drizzleInstance } from '#/db/drizzle-instance.server';
+
 import { userTable } from '#/db/schema';
+import { db } from '#app/modules/api/db.server';
 
 export function meta() {
 	return [
@@ -11,7 +12,7 @@ export function meta() {
 }
 
 export async function loader() {
-	const users = await drizzleInstance.select().from(userTable).all();
+	const users = await db.select().from(userTable).all();
 	return json(users);
 }
 
