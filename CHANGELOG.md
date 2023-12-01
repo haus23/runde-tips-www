@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Create API module with singleton db instance. ([cddfba2](https://github.com/haus23/runde-tips-www/commit/cddfba2))
+- Introduce app colors and add minimal foh header. ([93e0f71](https://github.com/haus23/runde-tips-www/commit/93e0f71))
+
+### 🏡 Chore
+
+- Add license. ([1448c3d](https://github.com/haus23/runde-tips-www/commit/1448c3d))
+- **dx:** Configure import and path alias. ([b1e7c0d](https://github.com/haus23/runde-tips-www/commit/b1e7c0d))
+- Update deps. ([4783ba3](https://github.com/haus23/runde-tips-www/commit/4783ba3))
+- Re-adding comments. ([8148f59](https://github.com/haus23/runde-tips-www/commit/8148f59))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.4
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.3...v0.0.4)
