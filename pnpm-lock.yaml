@@ -34,6 +34,9 @@ devDependencies:
   '@biomejs/biome':
     specifier: 1.4.0
     version: 1.4.0
+  '@radix-ui/colors':
+    specifier: ^3.0.0
+    version: 3.0.0
   '@remix-run/dev':
     specifier: ^2.3.1
     version: 2.3.1(@remix-run/serve@2.3.1)(typescript@5.3.2)(vite@5.0.2)
@@ -1315,6 +1318,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@radix-ui/colors@3.0.0:
+    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
+    dev: true
 
   /@remix-run/dev@2.3.1(@remix-run/serve@2.3.1)(typescript@5.3.2)(vite@5.0.2):
     resolution: {integrity: sha512-Qo6bbdDUHvg6+LiC+8paA40hWVRPBqYCoOse9hEZHRHNxY2r5JsF5RbXldx/70wtT1gJkp+k5z3MjVxkYUsqEw==}
