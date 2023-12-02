@@ -9,8 +9,6 @@ import {
 
 import './styles.css';
 
-import { AppHeader } from './components/header/app-header';
-
 export default function App() {
 	return (
 		<html lang="de" className="dark">
@@ -21,10 +19,7 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
-				<AppHeader />
-				<main className="pt-12">
-					<Outlet />
-				</main>
+				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
