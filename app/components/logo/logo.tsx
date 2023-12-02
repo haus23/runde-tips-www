@@ -7,7 +7,7 @@ export function Logo() {
 				<title>Logo</title>
 				<use href={`${LogoImage}#logo`} />
 			</svg>
-			<span className="text-xl font-semibold">runde.tips</span>
+			<span className="text-xl">runde.tips</span>
 		</div>
 	);
 }
