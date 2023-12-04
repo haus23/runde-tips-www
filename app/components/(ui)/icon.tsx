@@ -23,7 +23,7 @@ interface IconProps extends SVGProps<SVGSVGElement> {
 export function Icon({ name, className, ...props }: IconProps) {
 	return (
 		<svg {...props} className={cx('inline h-5 w-5 self-center', className)}>
-			<title>{name} icon</title>
+			<title>{`${name} icon`}</title>
 			<use href={`${iconFile}#${name}`} />
 		</svg>
 	);
