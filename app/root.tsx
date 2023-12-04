@@ -7,6 +7,8 @@ import {
 	ScrollRestoration,
 } from '@remix-run/react';
 
+import { ClientHintCheck } from './components/client-hint-check';
+
 import './styles.css';
 
 export default function App() {
@@ -14,6 +16,7 @@ export default function App() {
 		<html lang="de" className="dark">
 			<head>
 				<meta charSet="utf-8" />
+				<ClientHintCheck />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<Meta />
 				<Links />
