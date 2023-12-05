@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Implement a simple toggle to switch color scheme. ([8a89aea](https://github.com/haus23/runde-tips-www/commit/8a89aea))
+- Make the toggle a little bit more fancier. ([3c06898](https://github.com/haus23/runde-tips-www/commit/3c06898))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.7
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.6...v0.0.7)
