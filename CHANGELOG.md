@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.6...v0.0.7)
+
+### 🩹 Fixes
+
+- Move tailwind helpers to prod deps. ([f9e82a3](https://github.com/haus23/runde-tips-www/commit/f9e82a3))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.6
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.5...v0.0.6)
