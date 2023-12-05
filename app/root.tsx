@@ -1,3 +1,5 @@
+import { type DataFunctionArgs, json } from '@remix-run/node';
+
 import {
 	Links,
 	LiveReload,
@@ -9,11 +11,20 @@ import {
 
 import { ClientHintCheck } from './components/client-hint-check';
 
+import { getHints } from './utils/client-hints.server';
+import { useTheme } from './utils/theme';
+
 import './styles.css';
 
+export function loader({ request }: DataFunctionArgs) {
+	return json({ requestInfo: { hints: getHints(request) } });
+}
+
 export default function App() {
+	const { colorScheme } = useTheme();
+
 	return (
-		<html lang="de" className="dark">
+		<html lang="de" className={colorScheme}>
 			<head>
 				<meta charSet="utf-8" />
 				<ClientHintCheck />
