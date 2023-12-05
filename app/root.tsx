@@ -15,9 +15,15 @@ import { getHints } from './utils/client-hints.server';
 import { useTheme } from './utils/theme';
 
 import './styles.css';
+import { getSession } from './utils/session.server';
 
-export function loader({ request }: DataFunctionArgs) {
-	return json({ requestInfo: { hints: getHints(request) } });
+export async function loader({ request }: DataFunctionArgs) {
+	return json({
+		requestInfo: {
+			hints: getHints(request),
+			session: await getSession(request),
+		},
+	});
 }
 
 export default function App() {

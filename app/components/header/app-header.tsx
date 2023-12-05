@@ -4,6 +4,7 @@ import { useTheme } from '#app/utils/theme';
 import { Button } from '../(ui)/button';
 import { Icon } from '../(ui)/icon';
 import { Logo } from '../logo/logo';
+import { ThemeSelect } from './theme-select';
 
 export function AppHeader() {
 	const { colorScheme } = useTheme();
@@ -13,9 +14,7 @@ export function AppHeader() {
 			<Link to="/">
 				<Logo />
 			</Link>
-			<Button intent="toolbar">
-				{colorScheme === 'dark' ? <Icon name="moon" /> : <Icon name="sun" />}
-			</Button>
+			<ThemeSelect />
 		</header>
 	);
 }
