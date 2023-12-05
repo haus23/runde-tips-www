@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Switch to flat routes and add layout. ([4a3c6d8](https://github.com/haus23/runde-tips-www/commit/4a3c6d8))
+- Add icon component. First reusable ui component. ([8ef0b28](https://github.com/haus23/runde-tips-www/commit/8ef0b28))
+- Add button component. ([c2a6b3c](https://github.com/haus23/runde-tips-www/commit/c2a6b3c))
+- Evaluate client prefs. Set or change cookie accordingly. ([f37309c](https://github.com/haus23/runde-tips-www/commit/f37309c))
+- Load and use client hint in server. ([2d81df0](https://github.com/haus23/runde-tips-www/commit/2d81df0))
+- Subscribe to client scheme changes. ([2be8683](https://github.com/haus23/runde-tips-www/commit/2be8683))
+
+### 🩹 Fixes
+
+- Text too bold. ([e0b1822](https://github.com/haus23/runde-tips-www/commit/e0b1822))
+- Title must not have array of children. ([fba15ad](https://github.com/haus23/runde-tips-www/commit/fba15ad))
+
+### 💅 Refactors
+
+- Simplify by using @epic-web/client-hints ([e7c8c07](https://github.com/haus23/runde-tips-www/commit/e7c8c07))
+
+### 🏡 Chore
+
+- **dx:** Add tailwind class names helper utils. ([43844b2](https://github.com/haus23/runde-tips-www/commit/43844b2))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.5
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.4...v0.0.5)
