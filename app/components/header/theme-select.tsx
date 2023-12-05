@@ -20,9 +20,18 @@ export function ThemeSelect() {
 		<Button
 			intent="toolbar"
 			onClick={toggleTheme}
-			className={cx([isSystem && 'text-gray-950'])}
+			className={cx([isSystem && 'text-gray-950', 'overflow-clip'])}
 		>
-			{colorScheme === 'dark' ? <Icon name="moon" /> : <Icon name="sun" />}
+			<div className="relative h-5 w-5">
+				<Icon
+					name="moon"
+					className="absolute inset-0 origin-[50%_100px] rotate-90 transform transition-transform duration-300 dark:rotate-0"
+				/>
+				<Icon
+					name="sun"
+					className="absolute inset-0 origin-[50%_100px] rotate-0 transform transition-transform duration-300 dark:-rotate-90"
+				/>
+			</div>
 		</Button>
 	);
 }
