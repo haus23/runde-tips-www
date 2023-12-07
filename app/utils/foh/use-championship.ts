@@ -8,9 +8,14 @@ export function useChampionship() {
 	const { state } = useLocation();
 
 	const stateValue = Championship.safeParse(state);
-	return (
+	const championship =
 		(stateValue.success && stateValue.data) ||
 		championships.find((c) => c.slug === slug) ||
-		Championship.parse(championships[0])
-	);
+		Championship.parse(championships[0]);
+
+	return {
+		championship,
+		championshipSegment:
+			championship === championships[0] ? '' : championship.slug,
+	};
 }

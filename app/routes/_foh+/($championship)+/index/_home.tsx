@@ -8,7 +8,7 @@ export function meta() {
 }
 
 export default function HomeRoute() {
-	const championship = useChampionship();
+	const { championship } = useChampionship();
 
 	return (
 		<div className="mt-12 flex justify-around">
