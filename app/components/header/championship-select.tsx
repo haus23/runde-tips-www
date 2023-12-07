@@ -57,7 +57,11 @@ export function ChampionshipSelect() {
 							placeholder="Turnier"
 							className="w-full bg-transparent px-6 py-2.5 font-semibold placeholder:text-gray-950"
 						/>
-						<Combobox.Options static className="border-t [&:not(:empty)]:p-2">
+						<Combobox.Options
+							static
+							hold
+							className="border-t [&:not(:empty)]:p-2"
+						>
 							{filteredChampionships.map((championship) => (
 								<Combobox.Option
 									value={championship}
