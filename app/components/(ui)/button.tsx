@@ -3,12 +3,13 @@ import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { type VariantProps, cva } from '#app/utils/tailwind';
 
 const buttonVariants = cva({
-	base: [''],
+	base: ['inline-flex items-center px-4 py-2 rounded-lg border'],
 	variants: {
 		intent: {
-			default: '',
+			default: 'bg-gray-200 hover:bg-gray-300 active:bg-gray-400',
+			primary: 'bg-violet-200 hover:bg-violet-300 active:bg-violet-400',
 			toolbar:
-				'inline-flex items-center p-2 rounded-lg bg-violet-200 hover:bg-violet-300 active:bg-violet-400',
+				'border-0 px-2 bg-violet-200 hover:bg-violet-300 active:bg-violet-400',
 		},
 	},
 	defaultVariants: {
