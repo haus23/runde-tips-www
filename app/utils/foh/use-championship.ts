@@ -16,6 +16,6 @@ export function useChampionship() {
 	return {
 		championship,
 		championshipSegment:
-			championship === championships[0] ? '' : championship.slug,
+			championship.id === championships[0]?.id ? '' : championship.slug,
 	};
 }
