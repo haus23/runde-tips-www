@@ -1,13 +1,66 @@
-import { Form } from '@remix-run/react';
+import { useForm } from '@conform-to/react';
+import { parse, refine } from '@conform-to/zod';
+import { Form, useActionData } from '@remix-run/react';
+import { z } from 'zod';
+
+import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
 import { Button } from '#app/components/(ui)/button';
 
+async function isKnownEmail(email: string) {
+	return false;
+}
+
+function createFormSchema(constraint?: {
+	isKnownEmail?: (email: string) => Promise<boolean>;
+}) {
+	return z.object({
+		email: z
+			.string({ required_error: 'Email-Adresse ist notwendig.' })
+			.email('Ungültige Email-Adresse.')
+			.pipe(
+				z.string().superRefine((email, ctx) =>
+					refine(ctx, {
+						validate: () => constraint?.isKnownEmail?.(email),
+						message: 'Unbekannte Email-Adresse.',
+					}),
+				),
+			),
+	});
+}
+
+export async function action({ request }: DataFunctionArgs) {
+	const formData = await request.formData();
+
+	const submission = await parse(formData, {
+		schema: createFormSchema({ isKnownEmail }),
+		async: true,
+	});
+
+	if (submission.intent !== 'submit' || !submission.value) {
+		return json(submission);
+	}
+
+	return redirect('/onboarding');
+}
+
 export default function LoginRoute() {
+	const lastSubmission = useActionData<typeof action>();
+	const email = undefined;
+
+	const [form, fields] = useForm({
+		lastSubmission,
+		onValidate({ formData }) {
+			return parse(formData, { schema: createFormSchema() });
+		},
+		defaultValue: { email },
+	});
+
 	return (
 		<div className="max-w-sm mx-auto mt-12 border rounded-lg p-4 shadow">
 			<header className="border-b pb-2">
 				<h2 className="text-xl font-semibold">Anmeldung</h2>
 			</header>
-			<Form method="post" className="mt-6">
+			<Form method="post" className="mt-6" {...form.props}>
 				<div className="relative pb-6">
 					<label htmlFor="email" className="block text-sm font-medium">
 						Email
@@ -20,9 +73,11 @@ export default function LoginRoute() {
 						required
 						className="mt-2 block w-full appearance-none rounded-md border px-3 py-2 shadow-sm sm:text-sm bg-gray-100"
 					/>
-					<div className="text-red-500 text-sm absolute bottom-0">
-						Ein Problem trat auf!
-					</div>
+					{fields.email.error && (
+						<div className="text-red-500 text-sm absolute bottom-0">
+							{fields.email.error}
+						</div>
+					)}
 				</div>
 				<Button intent="primary" className="mt-4 block mx-auto" type="submit">
 					Login-Code anfordern
