@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.0.9
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.8...v0.0.9)
+
+### 🚀 Enhancements
+
+- Add ruleset and championship schema. ([8259437](https://github.com/haus23/runde-tips-www/commit/8259437))
+- Add championship model and queries. ([a2b409e](https://github.com/haus23/runde-tips-www/commit/a2b409e))
+- Load championships and provide client hook. ([5baaad6](https://github.com/haus23/runde-tips-www/commit/5baaad6))
+- Show current championship based on route param. ([7007672](https://github.com/haus23/runde-tips-www/commit/7007672))
+- Return nav segment as well. ([980a010](https://github.com/haus23/runde-tips-www/commit/980a010))
+- Add championship select command. ([aacd23d](https://github.com/haus23/runde-tips-www/commit/aacd23d))
+
+### 🏡 Chore
+
+- Add deps for zod and headlessui. ([6ddd49e](https://github.com/haus23/runde-tips-www/commit/6ddd49e))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.8
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.7...v0.0.8)
