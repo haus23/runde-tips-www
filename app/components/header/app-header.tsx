@@ -4,6 +4,7 @@ import { useTheme } from '#app/utils/theme';
 import { Button } from '../(ui)/button';
 import { Icon } from '../(ui)/icon';
 import { Logo } from '../logo/logo';
+import { ChampionshipSelect } from './championship-select';
 import { ThemeSelect } from './theme-select';
 
 export function AppHeader() {
@@ -11,10 +12,13 @@ export function AppHeader() {
 
 	return (
 		<header className="fixed inset-x-0 top-0 flex items-center justify-between h-12 bg-gray-100 px-2 border-b shadow-md sm:px-4">
-			<Link to="/">
+			<Link to="/" className="rounded-lg">
 				<Logo />
 			</Link>
-			<ThemeSelect />
+			<div className="flex gap-x-2">
+				<ChampionshipSelect />
+				<ThemeSelect />
+			</div>
 		</header>
 	);
 }
