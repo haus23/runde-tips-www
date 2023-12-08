@@ -1,4 +1,4 @@
-import { Combobox, Dialog, Popover, Transition } from '@headlessui/react';
+import { Combobox, Dialog } from '@headlessui/react';
 import { useNavigate } from '@remix-run/react';
 import { useState } from 'react';
 import { Championship } from '#app/modules/api/model/championship';
@@ -10,7 +10,7 @@ import { Icon } from '../(ui)/icon';
 
 export function ChampionshipSelect() {
 	const championships = useChampionships();
-	const { championship: current, championshipSegment } = useChampionship();
+	const { championship: current, setChampionship } = useChampionship();
 
 	const navigate = useNavigate();
 	const [query, setQuery] = useState('');
@@ -29,6 +29,7 @@ export function ChampionshipSelect() {
 	}
 	function handleSelect(championship: Championship) {
 		closeDialog();
+		setChampionship(championship);
 		navigate(`/${championship === championships[0] ? '' : championship.slug}`, {
 			unstable_viewTransition: true,
 		});
