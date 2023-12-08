@@ -10,6 +10,11 @@ const { getSession: getRawSession, commitSession } =
 	createCookieSessionStorage<SessionData>({
 		cookie: {
 			name: '__prefs',
+			sameSite: 'lax',
+			path: '/',
+			httpOnly: true,
+			secrets: [process.env.SESSION_SECRET],
+			secure: process.env.NODE_ENV === 'production',
 		},
 	});
 
