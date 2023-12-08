@@ -25,6 +25,7 @@ export function AppHeader() {
 				</div>
 				<span className="border h-10 mx-2" />
 				<NavLink to="/login">Log In</NavLink>
+				<NavLink to="/logout">Log Out</NavLink>
 			</div>
 		</header>
 	);
