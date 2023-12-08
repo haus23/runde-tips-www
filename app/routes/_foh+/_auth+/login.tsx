@@ -11,7 +11,8 @@ import {
 	commitSession,
 	getSession,
 } from '#app/modules/auth/auth-session.server';
-import { requireAnonymous } from '#app/modules/auth/auth.server';
+import { isKnownEmail, requireAnonymous } from '#app/modules/auth/auth.server';
+import { invariant } from '#app/utils/invariant';
 import { generateLoginCode } from '#app/utils/totp.server';
 
 function createFormSchema(constraint?: {
@@ -42,18 +43,8 @@ export async function loader({ request }: DataFunctionArgs) {
 export async function action({ request }: DataFunctionArgs) {
 	const formData = await request.formData();
 
-	let user: User;
 	const submission = await parse(formData, {
-		schema: createFormSchema({
-			isKnownEmail: async (email) => {
-				const userCandidate = await getUserByEmail(email);
-				if (userCandidate === null) {
-					return false;
-				}
-				user = userCandidate;
-				return true;
-			},
-		}),
+		schema: createFormSchema({ isKnownEmail }),
 		async: true,
 	});
 
@@ -61,6 +52,8 @@ export async function action({ request }: DataFunctionArgs) {
 		return json(submission);
 	}
 
+	const user = await getUserByEmail(submission.value.email);
+	invariant(user !== null);
 	const { code, secret } = generateLoginCode();
 	console.log(code);
 

@@ -21,6 +21,11 @@ export async function requireAnonymous(request: Request) {
 	}
 }
 
+export async function isKnownEmail(email: string) {
+	const user = await getUserByEmail(email);
+	return user !== null;
+}
+
 export async function login(
 	request: Request,
 	email: string,
