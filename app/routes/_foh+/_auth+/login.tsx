@@ -1,6 +1,6 @@
 import { useForm } from '@conform-to/react';
 import { parse, refine } from '@conform-to/zod';
-import { Form, useActionData } from '@remix-run/react';
+import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 
 import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
@@ -8,10 +8,11 @@ import { Button } from '#app/components/(ui)/button';
 import { getUserByEmail } from '#app/modules/api/foh/users';
 import type { User } from '#app/modules/api/model/user';
 import {
-}
+	commitSession,
 	getSession,
 } from '#app/modules/auth/auth-session.server';
 import { requireAnonymous } from '#app/modules/auth/auth.server';
+import { generateLoginCode } from '#app/utils/totp.server';
 
 function createFormSchema(constraint?: {
 	isKnownEmail?: (email: string) => Promise<boolean>;
@@ -60,12 +61,23 @@ export async function action({ request }: DataFunctionArgs) {
 		return json(submission);
 	}
 
-	return redirect('/onboarding');
+	const { code, secret } = generateLoginCode();
+	console.log(code);
+
+	const session = await getSession(request.headers.get('Cookie'));
+	session.flash('auth:email', submission.value.email);
+	session.flash('auth:secret', secret);
+
+	return redirect('/onboarding', {
+		headers: {
+			'Set-Cookie': await commitSession(session),
+		},
+	});
 }
 
 export default function LoginRoute() {
+	const { email } = useLoaderData<typeof loader>();
 	const lastSubmission = useActionData<typeof action>();
-	const email = undefined;
 
 	const [form, fields] = useForm({
 		lastSubmission,
@@ -86,6 +98,7 @@ export default function LoginRoute() {
 						Email
 					</label>
 					<input
+						defaultValue={fields.email.defaultValue}
 						type="text"
 						id="email"
 						name="email"
