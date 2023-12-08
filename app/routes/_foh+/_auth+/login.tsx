@@ -7,8 +7,11 @@ import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
 import { Button } from '#app/components/(ui)/button';
 
 async function isKnownEmail(email: string) {
-	return false;
+import {
 }
+	getSession,
+} from '#app/modules/auth/auth-session.server';
+import { requireAnonymous } from '#app/modules/auth/auth.server';
 
 function createFormSchema(constraint?: {
 	isKnownEmail?: (email: string) => Promise<boolean>;
@@ -26,6 +29,13 @@ function createFormSchema(constraint?: {
 				),
 			),
 	});
+}
+
+export async function loader({ request }: DataFunctionArgs) {
+	await requireAnonymous(request);
+
+	const session = await getSession(request.headers.get('Cookie'));
+	return json({ email: session.get('auth:email') });
 }
 
 export async function action({ request }: DataFunctionArgs) {
