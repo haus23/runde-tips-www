@@ -1,5 +1,8 @@
 import { redirect } from '@remix-run/node';
 import { getSession } from './auth-session.server';
+import { invariant } from '#app/utils/invariant';
+import { getUserByEmail } from '../api/foh/users';
+import { commitSession, getSession } from './auth-session.server';
 
 export async function getUserId(request: Request) {
 	const session = await getSession(request.headers.get('Cookie'));
@@ -12,4 +15,23 @@ export async function requireAnonymous(request: Request) {
 	if (userId) {
 		throw redirect('/');
 	}
+}
+
+export async function login(
+	request: Request,
+	email: string,
+	redirectTo?: string,
+) {
+	const session = await getSession(request.headers.get('Cookie'));
+
+	const user = await getUserByEmail(email);
+	invariant(user, 'Unknown authenticated user.');
+
+	session.set('user:id', user.id);
+
+	return redirect(redirectTo || '/', {
+		headers: {
+			'Set-Cookie': await commitSession(session),
+		},
+	});
 }
