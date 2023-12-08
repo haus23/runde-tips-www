@@ -5,8 +5,8 @@ import { z } from 'zod';
 
 import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
 import { Button } from '#app/components/(ui)/button';
-
-async function isKnownEmail(email: string) {
+import { getUserByEmail } from '#app/modules/api/foh/users';
+import type { User } from '#app/modules/api/model/user';
 import {
 }
 	getSession,
@@ -41,8 +41,18 @@ export async function loader({ request }: DataFunctionArgs) {
 export async function action({ request }: DataFunctionArgs) {
 	const formData = await request.formData();
 
+	let user: User;
 	const submission = await parse(formData, {
-		schema: createFormSchema({ isKnownEmail }),
+		schema: createFormSchema({
+			isKnownEmail: async (email) => {
+				const userCandidate = await getUserByEmail(email);
+				if (userCandidate === null) {
+					return false;
+				}
+				user = userCandidate;
+				return true;
+			},
+		}),
 		async: true,
 	});
 
