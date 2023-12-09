@@ -1,7 +1,7 @@
 import { Link, NavLink } from '@remix-run/react';
 
 import { useChampionship } from '#app/utils/foh/use-championship';
-import { Logo } from '../logo/logo';
+import { Logo } from '../logo';
 import { ChampionshipSelect } from './championship-select';
 import { ThemeSelect } from './theme-select';
 
