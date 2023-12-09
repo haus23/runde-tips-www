@@ -1,6 +1,44 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.9...v0.0.10)
+
+### 🚀 Enhancements
+
+- Hold last value if leaving the options box. ([466b979](https://github.com/haus23/runde-tips-www/commit/466b979))
+- Add login and standings route. Keep current championship in state. ([0e3c987](https://github.com/haus23/runde-tips-www/commit/0e3c987))
+- Add simple styled login form. ([abb109b](https://github.com/haus23/runde-tips-www/commit/abb109b))
+- Add conform to handle forms. ([40481de](https://github.com/haus23/runde-tips-www/commit/40481de))
+- Add auth session and provide secrets for both sessions. ([569b133](https://github.com/haus23/runde-tips-www/commit/569b133))
+- Redirect if already authenticated. ([47467cc](https://github.com/haus23/runde-tips-www/commit/47467cc))
+- Auth Step 1 - Validate email. ([78199d8](https://github.com/haus23/runde-tips-www/commit/78199d8))
+- Auth Step 2 - Generate TOTP-Code and store auth infos in session. ([507969c](https://github.com/haus23/runde-tips-www/commit/507969c))
+- Auth Step 3 - Onboarding user with valid code. ([1cc7aa2](https://github.com/haus23/runde-tips-www/commit/1cc7aa2))
+- Add jsx-email and create send-totp email template. ([a02e29d](https://github.com/haus23/runde-tips-www/commit/a02e29d))
+- Auth Step 4 - Provide logout route. ([188968f](https://github.com/haus23/runde-tips-www/commit/188968f))
+- Auth Step 4 - Send email with TOTP. ([40c09ab](https://github.com/haus23/runde-tips-www/commit/40c09ab))
+
+### 🩹 Fixes
+
+- Redirect to referer. No need to switch foh-context here. ([5be0220](https://github.com/haus23/runde-tips-www/commit/5be0220))
+- Try to resolve a security problem with svg sprites and data urls. ([5f52fa4](https://github.com/haus23/runde-tips-www/commit/5f52fa4))
+
+### 💅 Refactors
+
+- Move current championship state into foh context. ([98af384](https://github.com/haus23/runde-tips-www/commit/98af384))
+- Make code more clean with explicit validation method. ([d1ca0b6](https://github.com/haus23/runde-tips-www/commit/d1ca0b6))
+
+### 🏡 Chore
+
+- Add TOTP library. ([47df665](https://github.com/haus23/runde-tips-www/commit/47df665))
+- Ignore dev time files marked as local in filename. ([3d77fa0](https://github.com/haus23/runde-tips-www/commit/3d77fa0))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.9
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.8...v0.0.9)
