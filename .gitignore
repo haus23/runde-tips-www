@@ -10,3 +10,6 @@ data/
 
 # Sensible Data
 .env
+
+# Local dev-time files
+*.local.*
