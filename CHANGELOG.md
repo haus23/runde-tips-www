@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.11...v0.0.12)
+
+### 🩹 Fixes
+
+- (Temporary) solution for the svg problem, just use public assets. ([0d4fd9b](https://github.com/haus23/runde-tips-www/commit/0d4fd9b))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.11
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.10...v0.0.11)
