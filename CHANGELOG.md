@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.10...v0.0.11)
+
+### 🩹 Fixes
+
+- Second try on the svg image problem. ([d38c470](https://github.com/haus23/runde-tips-www/commit/d38c470))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.10
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.9...v0.0.10)
