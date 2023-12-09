@@ -4,6 +4,8 @@ import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 
 import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
+import { render } from 'jsx-email';
+import { promiseHash } from 'remix-utils/promise';
 import { Button } from '#app/components/(ui)/button';
 import { getUserByEmail } from '#app/modules/api/foh/users';
 import type { User } from '#app/modules/api/model/user';
@@ -12,8 +14,10 @@ import {
 	getSession,
 } from '#app/modules/auth/auth-session.server';
 import { isKnownEmail, requireAnonymous } from '#app/modules/auth/auth.server';
+import { sendEmail } from '#app/utils/email.server';
 import { invariant } from '#app/utils/invariant';
 import { generateLoginCode } from '#app/utils/totp.server';
+import { Template, type TemplateProps } from '#emails/send-totp';
 
 function createFormSchema(constraint?: {
 	isKnownEmail?: (email: string) => Promise<boolean>;
@@ -54,8 +58,19 @@ export async function action({ request }: DataFunctionArgs) {
 
 	const user = await getUserByEmail(submission.value.email);
 	invariant(user !== null);
+
 	const { code, secret } = generateLoginCode();
-	console.log(code);
+	const emailContent = await renderSendTotpMail({ username: user.name, code });
+
+	const smtpResult = await sendEmail({
+		to: `${user.name} <${user.email}>`,
+		subject: 'Tipprunde Login Code',
+		...emailContent,
+	});
+
+	if (smtpResult.status === 'error') {
+		throw new Error('Probleme beim Email-Versand.');
+	}
 
 	const session = await getSession(request.headers.get('Cookie'));
 	session.flash('auth:email', submission.value.email);
@@ -111,4 +126,12 @@ export default function LoginRoute() {
 			</Form>
 		</div>
 	);
+}
+
+async function renderSendTotpMail(props: TemplateProps) {
+	const email = <Template {...props} />;
+	return await promiseHash({
+		html: render(email),
+		text: render(email, { plainText: true }),
+	});
 }
