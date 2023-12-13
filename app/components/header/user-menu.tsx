@@ -21,6 +21,18 @@ export function UserMenu() {
 						Hallo {user.name}
 					</span>
 				</Menu.Item>
+				{user.roles.includes('ADMIN') && (
+					<Menu.Item>
+						<NavLink
+							to="/manager"
+							className={cx(
+								'px-4 py-1.5 data-[headlessui-state=active]:bg-gray-300',
+							)}
+						>
+							Manager
+						</NavLink>
+					</Menu.Item>
+				)}
 				<Menu.Item>
 					<NavLink
 						to="/logout"
