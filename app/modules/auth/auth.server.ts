@@ -1,7 +1,7 @@
 import { redirect } from '@remix-run/node';
 import { redirectBack } from 'remix-utils/redirect-back';
 import { invariant } from '#app/utils/invariant';
-import { getUserByEmail } from '../api/foh/users';
+import { getUserByEmail, getUserById } from '../api/foh/users';
 import {
 	commitSession,
 	destroySession,
@@ -12,6 +12,11 @@ export async function getUserId(request: Request) {
 	const session = await getSession(request.headers.get('Cookie'));
 	const userId = session.get('user:id');
 	return userId ?? null;
+}
+
+export async function getUser(request: Request) {
+	const userId = await getUserId(request);
+	return userId ? await getUserById(userId) : null;
 }
 
 export async function requireAnonymous(request: Request) {

@@ -1,5 +1,4 @@
 import { type DataFunctionArgs, json } from '@remix-run/node';
-
 import {
 	Links,
 	LiveReload,
@@ -14,11 +13,16 @@ import { ClientHintCheck } from './components/client-hint-check';
 import { getHints } from './utils/client-hints.server';
 import { useTheme } from './utils/theme';
 
-import './styles.css';
+import { getUser } from './modules/auth/auth.server';
 import { getSession } from './utils/session.server';
 
+import './styles.css';
+
 export async function loader({ request }: DataFunctionArgs) {
+	const user = await getUser(request);
+
 	return json({
+		user,
 		requestInfo: {
 			hints: getHints(request),
 			session: await getSession(request),
