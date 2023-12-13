@@ -43,7 +43,7 @@ export function ChampionshipSelect() {
 				onClick={() => setIsOpen(true)}
 			>
 				<Icon name="search" />
-				<span className="sr-only sm:not-sr-only">Turnier</span>
+				<span className="sr-only sm:not-sr-only text-sm">Turnier</span>
 			</Button>
 			<Dialog open={isOpen} onClose={closeDialog}>
 				<div className="fixed inset-0 bg-gray-50/20 backdrop-blur-sm" />
