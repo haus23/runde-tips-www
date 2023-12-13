@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.12...v0.1.0)
+
+### 🚀 Enhancements
+
+- Implement simple user menu with logout link. ([dcaabd7](https://github.com/haus23/runde-tips-www/commit/dcaabd7))
+- Add (not working by now) manager link for admin users. ([fb5321f](https://github.com/haus23/runde-tips-www/commit/fb5321f))
+
+### 🩹 Fixes
+
+- Align search button height with remaining toolbar buttons. ([f652125](https://github.com/haus23/runde-tips-www/commit/f652125))
+
+### 💅 Refactors
+
+- Type the parsed roles string to an array of string enums. ([98d32c6](https://github.com/haus23/runde-tips-www/commit/98d32c6))
+
+### 🏡 Chore
+
+- Update deps. ([8d951c4](https://github.com/haus23/runde-tips-www/commit/8d951c4))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.0.12
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.11...v0.0.12)
