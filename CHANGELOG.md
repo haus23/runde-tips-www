@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/haus23/runde-tips-www/compare/v0.1.0...v0.2.0)
+
+### 🏡 Chore
+
+- Upgrade remix to v2.4 ([248a6cb](https://github.com/haus23/runde-tips-www/commit/248a6cb))
+
+### ❤️ Contributors
+
+- Micha Buchholz <micha@haus23.net>
+
 ## v0.1.0
 
 [compare changes](https://github.com/haus23/runde-tips-www/compare/v0.0.12...v0.1.0)
