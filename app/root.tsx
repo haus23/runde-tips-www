@@ -1,4 +1,4 @@
-import { type DataFunctionArgs, json } from '@remix-run/node';
+import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import {
 	Links,
 	LiveReload,
@@ -18,7 +18,7 @@ import { getSession } from './utils/session.server';
 
 import './styles.css';
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const user = await getUser(request);
 
 	return json({

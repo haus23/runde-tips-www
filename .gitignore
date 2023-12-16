@@ -3,7 +3,6 @@ node_modules/
 
 # Remix Build
 build/
-public/build/
 
 # Development Data
 data/

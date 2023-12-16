@@ -1,12 +1,17 @@
-import { useForm } from '@conform-to/react';
-import { parse, refine } from '@conform-to/zod';
-import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
-import { Form, useActionData } from '@remix-run/react';
-import { z } from 'zod';
 import { Button } from '#app/components/(ui)/button';
 import { getSession } from '#app/modules/auth/auth-session.server';
 import { login, requireAnonymous } from '#app/modules/auth/auth.server';
 import { validateLoginCode } from '#app/utils/totp.server';
+import { useForm } from '@conform-to/react';
+import { parse, refine } from '@conform-to/zod';
+import {
+	json,
+	redirect,
+	type ActionFunctionArgs,
+	type LoaderFunctionArgs,
+} from '@remix-run/node';
+import { Form, useActionData } from '@remix-run/react';
+import { z } from 'zod';
 
 function createFormSchema(constraint?: {
 	isValidCode?: (code: string) => Promise<boolean>;
@@ -26,7 +31,7 @@ function createFormSchema(constraint?: {
 	});
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	await requireAnonymous(request);
 	const session = await getSession(request.headers.get('Cookie'));
 
@@ -38,7 +43,7 @@ export async function loader({ request }: DataFunctionArgs) {
 	return null;
 }
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const session = await getSession(request.headers.get('Cookie'));
 
 	const email = session.get('auth:email');

@@ -1,14 +1,19 @@
 import { useForm } from '@conform-to/react';
 import { parse, refine } from '@conform-to/zod';
+import {
+	json,
+	redirect,
+	type ActionFunctionArgs,
+	type LoaderFunctionArgs,
+} from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
-import { z } from 'zod';
 
-import { type DataFunctionArgs, json, redirect } from '@remix-run/node';
 import { render } from 'jsx-email';
 import { promiseHash } from 'remix-utils/promise';
+import { z } from 'zod';
+
 import { Button } from '#app/components/(ui)/button';
 import { getUserByEmail } from '#app/modules/api/foh/users';
-import type { User } from '#app/modules/api/model/user';
 import {
 	commitSession,
 	getSession,
@@ -37,14 +42,14 @@ function createFormSchema(constraint?: {
 	});
 }
 
-export async function loader({ request }: DataFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	await requireAnonymous(request);
 
 	const session = await getSession(request.headers.get('Cookie'));
 	return json({ email: session.get('auth:email') });
 }
 
-export async function action({ request }: DataFunctionArgs) {
+export async function action({ request }: ActionFunctionArgs) {
 	const formData = await request.formData();
 
 	const submission = await parse(formData, {
